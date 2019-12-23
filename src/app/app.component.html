@@ -19,11 +19,15 @@
     </div>
     <div class="form-group">
         <label>Email: </label>
+        <button type="button" class="btn btn-secondary btn-sm m-2" (click)="addAltEmail()">Add Email</button>
         <input type="text"
         [class.is-invalid]="email.invalid && email.touched"
          formControlName="email" class="form-control" />
         <div >
             <small *ngIf="email.invalid && email.touched" class="text-danger">Email is required to susbcribe to promotions</small>
+         </div>
+         <div formArrayName="altEmails" *ngFor="let email of altEmails.controls; let i=index">
+                <input type="text" class="form-control my-1" [formControlName]="i">
          </div>
       </div>
       <div class="form-check mb-3">
