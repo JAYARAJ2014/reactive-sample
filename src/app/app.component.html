@@ -27,7 +27,10 @@
         type="password"
         class="form-control"
         formControlName="confirmPassword"
-      />
+        [class.is-invalid]="regForm.errors?.misMatch"
+        />
+        <small *ngIf="regForm.errors?.misMatch" class="text-danger"> Passwords do not match </small>
+
     </div>
 
     <div formGroupName="address">

@@ -8,7 +8,7 @@ import { AbstractControl, ValidatorFn } from '@angular/forms';
     Hence we are wrapping it around another function and exporting it back!
     This is called factory function!
 */
-export function forbiddenNameValidator(nameToValidate: RegExp): ValidatorFn {
+export function ForbiddenNameValidator(nameToValidate: RegExp): ValidatorFn {
  return   (control: AbstractControl): { [key: string]: any } | null => {
 
         const forbidden = nameToValidate.test(control.value);

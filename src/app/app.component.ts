@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validator, Validators } from '@angular/forms';
-import { forbiddenNameValidator } from './shared/user-name.validator';
+import { ForbiddenNameValidator } from './shared/user-name.validator';
+import { PasswordValidator } from './shared/password.validator';
 
 @Component({
   selector: 'app-root',
@@ -28,13 +29,13 @@ export class AppComponent {
   //   })
   // });
   regForm = this.fb.group({
-    userName: ['', [Validators.required, Validators.minLength(4), forbiddenNameValidator(/admin/)]],
+    userName: ['', [Validators.required, Validators.minLength(4), ForbiddenNameValidator(/admin/)]],
     password: [''],
     confirmPassword: [''],
     address: this.fb.group({
       city: [''], state: [''], zip: ['']
     })
-  })
+  }, {validator: PasswordValidator})
 
   get userName() {
     return this.regForm.get('userName');
