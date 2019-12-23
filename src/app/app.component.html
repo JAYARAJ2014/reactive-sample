@@ -14,6 +14,7 @@
       <div *ngIf="userName.invalid && userName.touched">
           <small *ngIf="userName.errors?.required" class="text-danger">User Name is required</small>
           <small *ngIf="userName.errors?.minlength" class="text-danger">User Name should be minimum 4 characters</small>
+          <small *ngIf="userName.errors?.forbiddenName" class="text-danger">Given user name {{userName.errors.forbiddenName.value}} is forbidden </small>
        </div>
     </div>
     <div class="form-group">
